@@ -36,7 +36,7 @@ YOLOHOME: Elevate your home with cutting-edge smart technology for convenience, 
 
 # How to use
 1. Download and install <b>Node</b> and <b>MongoDB</b>.
-2. Extract <b>JSON Data.zip</b> and insert all JSON files into your MongoDB database like this:
+2. Extract <b>JSON Data.rar</b> and insert all JSON files into your MongoDB database like this:
    
    ![image](https://github.com/homanhquan1812/YOLOHOME-Smart-Home-System/assets/130955957/f3d0408a-f8b1-4fc2-bbb1-cfa813ea45c9)
 
