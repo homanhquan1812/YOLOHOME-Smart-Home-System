@@ -11,7 +11,7 @@ YOLOHOME: Elevate your home with cutting-edge smart technology for convenience, 
 # Technologies used to build this website:
 
 <div align="center">
-  <img src="https://www.boardinfinity.com/blog/content/images/2023/01/Mern.png" alt="YOLOHOME Logo" width="600" style="">
+  <img src="https://www.boardinfinity.com/blog/content/images/2023/01/Mern.png" alt="MERN Logo" width="600" style="">
 </div>
 
 1. Front-end: <b>ReactJS</b>.
@@ -20,6 +20,10 @@ YOLOHOME: Elevate your home with cutting-edge smart technology for convenience, 
 4. Cloud Database: <b>MongoDB Atlas</b>.
 5. IoT Database: <b>Adafruit</b>.
 6. Hosting: <b>Render</b> (free).
+7. IoT Devices:
+<div align="center">
+  <img src="https://github.com/homanhquan1812/YOLOHOME-Smart-Home-System/assets/130955957/de418a50-d17d-4afd-baa4-0a63c6293464" alt="IoT Devices" width="600" style="">
+</div>
 
 > Basically, hosting a website that people can access can't depend on an offline database. That's why our team uses MongoDB Atlas to let it connect to Render, so that the website can work perfectly.
 
