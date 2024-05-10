@@ -54,7 +54,7 @@ const Dashboard = () => {
 
   const handleLedUpdate = async () => {
     try {
-      const response = await fetch('http://localhost:3000/dashboard', {
+      const response = await fetch('https://yolohome-smart-home-system-api.onrender.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
