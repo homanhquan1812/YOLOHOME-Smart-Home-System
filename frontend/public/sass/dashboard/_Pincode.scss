@@ -1,0 +1,98 @@
+.pincode{
+    .pincode-body{
+        background:linear-gradient(90deg,#222b40, #f34238);
+        font-family:"open sans";
+        color:white;
+    }
+    #containor{
+        margin-top:40px;
+      }
+      .field{
+        outline:none;
+        background-color:transparent;
+        font-family:"open sans";
+        font-weight:100;
+        letter-spacing: 10px;
+        border-radius:8px;
+        width:220px;
+        font-size:1.1em;
+        border:1px solid white;
+        height:45px;
+        color:white;
+        text-align:center;
+        margin-top:-15px;
+        position:absolute;
+        margin-top:15px;
+        margin-left:30px;
+        display:inline-block;
+      }
+      h2{
+        color: white;
+      }
+      .number{
+        width:40px;
+        height:40px;
+        // padding:10px;
+        font-size:1.3em;
+        font-weight:200;
+        color:white;
+        font-family:"open sans";
+        border-radius:100%;
+        border:1px solid white;
+        text-align:center;
+        line-height:43px;
+        display:inline-block;
+        margin:10px;
+        cursor:pointer;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        transition:0.4s;
+      }
+      .number:hover{
+            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+      }
+      .number:active{
+        box-shadow:none;
+      }
+      /* another class just like number, so the x and check buttons wont interrupt to the javascript */
+      .numberS{
+        width:40px;
+        height:40px;
+        // padding:10px;
+        font-size:1.3em;
+        font-weight:200;
+        color:white;
+        font-family:"open sans";
+        border-radius:100%;
+        border:1px solid white;
+        text-align:center;
+        line-height:43px;
+        display:inline-block;
+        margin:10px;
+        cursor:pointer;
+      }
+      #x{
+        display:inline-block;
+        margin-left:300px;
+        background:#F44336;
+        border:none;
+        color:#9E9E9E;
+        transition:0.4s;
+         box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+      }
+      #x:hover{
+       color:white;
+          box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+      }
+      #x:active{
+        box-shadow:none;
+      }
+      #y{
+        font-size:1.0em;
+        border:none;
+        transition:0.6s;
+        color:#9E9E9E;
+      }
+      #y:hover{
+        color:white;
+      }
+}

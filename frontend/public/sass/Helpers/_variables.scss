@@ -1,0 +1,70 @@
+// Tooltip
+
+$TM-tooltipColor: rgba(0, 0, 0, 0.7);
+$TM-tooltipSize: 1em;
+$TM-tooltipRadius: 5px;
+$TM-tooltipTopShift: 5px;
+$TM-tooltipVerticalPadding: 5px;
+$TM-tooltipHorizontalPadding: $TM-tooltipVerticalPadding * 2;
+$TM-tooltipLeftShift: 100%;
+$TM-tooltipArrowWidth: 1.5; // Higher numbers produce smaller width
+$TM-tooltipArrowHeight: 2.2; // Higher numbers produce smaller height
+
+// VARIABLES (Have fun) ―――――――――――――――――――――――――
+$TM-mainTint: #3d3d44;
+$TM-backgroundColor: darken($TM-mainTint, 2%);
+$TM-borderSize: 9px;
+$TM-borderColor: darken($TM-mainTint, 8%);
+$TM-width: 25px;
+$TM-height: 240px;
+$TM-bulbSize: $TM-width * 2;
+$TM-radius: 20px;
+$TM-graduationsStyle: 2px solid rgba(0, 0, 0, 0.5);
+$TM-bulbColor: #3dcadf;
+$TM-mercuryColor : linear-gradient(#f17a65, $TM-bulbColor) no-repeat bottom;
+
+// RANGE ―――――――――――――――――――――――――
+// https://github.com/darlanrod/input-range-scss
+
+$track-color: $TM-borderColor !default;
+$thumb-color: $TM-bulbColor !default;
+
+$thumb-radius: 12px !default;
+$thumb-height: 11px !default;
+$thumb-width: 18px !default;
+$thumb-shadow-size: 4px !default;
+$thumb-shadow-blur: 4px !default;
+$thumb-shadow-color: transparent !default;
+$thumb-border-width: 0px !default;
+$thumb-border-color: $TM-mainTint !default;
+
+$track-width: 100% !default;
+$track-height: 10px !default;
+$track-shadow-size: 1px !default;
+$track-shadow-blur: 1px !default;
+$track-shadow-color: transparent !default;
+$track-border-width: 2px !default;
+$track-border-color: $track-color !default;
+
+$track-radius: 5px !default;
+$contrast: 3% !default;
+$focusStyle: lighten($track-color, $contrast);
+
+$ie-bottom-track-color: darken($track-color, $contrast) !default;
+
+
+$speed: 2s;
+
+
+$yellow: #feb103;
+$gray: #f6f8fa;
+$black: #444;
+$text-gray: #9e9e9e;
+$text-gray2: #858d9f;
+$blue1: #3976f6;
+$blue2: #59a2fb;
+$switchOff: #ff574e;
+
+$bgColor: linear-gradient(20deg, #333741, #72787C 45%) fixed;
+$venus: #141523;
+$in-size:60px;

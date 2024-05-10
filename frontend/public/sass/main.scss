@@ -1,0 +1,12 @@
+//Helper
+@import './Helpers/mixin';
+@import './Helpers/variables';
+
+//dashboard
+@import './dashboard/thermometer';
+@import './dashboard/humidity';
+@import './dashboard/illuminance';
+@import './dashboard/room';
+@import './dashboard/overrall';
+@import './dashboard/Pincode';
+@import './dashboard/noti';

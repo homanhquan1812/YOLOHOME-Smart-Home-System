@@ -1,0 +1,36 @@
+@mixin border() { border: $TM-borderSize solid $TM-borderColor; }
+
+@mixin shadow($shadow-size, $shadow-blur, $shadow-color) {
+    box-shadow: $shadow-size $shadow-size $shadow-blur $shadow-color, 0 0 $shadow-size lighten($shadow-color, 5%);
+}
+
+@mixin track {
+    cursor: default;
+    height: $track-height;
+    transition: all .2s ease;
+    width: $track-width;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+}
+
+@mixin thumb($adjustment: 0) {
+    @include shadow($thumb-shadow-size, $thumb-shadow-blur, $thumb-shadow-color);
+    background: $thumb-color;
+    border: $thumb-border-width solid $thumb-border-color;
+    border-radius: $thumb-radius;
+    cursor: pointer;
+    height: $thumb-height + $adjustment;
+    width: $thumb-width + $adjustment;
+}
+  
+  @mixin disabled {
+    cursor: not-allowed;
+}
+
+@mixin bp($bp,
+  $min-max: min-width){
+    $em: $bp/16;
+    @media(#{$min-max}: #{$em}em){
+      @content;
+    }
+}

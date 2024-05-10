@@ -1,0 +1,281 @@
+.thermometer{
+  .thermometer-body{
+    @import url('https://fonts.googleapis.com/css?family=Jaldi&display=swap');
+
+body {
+	display: flex;
+	height: 100vh;
+	margin: 0;
+	background:	#3d3d44;
+	font-family: 'Jaldi', sans-serif;
+	font-size: 14px;
+	color: white;
+}
+  }
+    #wrapper {
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    p {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    #info {
+        opacity: 0.2;
+        margin: 0;
+        text-align: center;
+    }
+    // THERMOMETER ―――――――――――――――――――――――――
+
+    #termometer {
+	width: $TM-width;
+	background: $TM-backgroundColor;
+	height: $TM-height;
+	position: relative;
+	@include border;
+	border-radius: $TM-radius;
+	z-index: 1;
+	margin-bottom: $TM-bulbSize;
+	
+	&:before, &:after {
+		position: absolute;
+		content: "";
+		border-radius: 50%;
+	}
+	
+	// Border cover
+	
+	&:before {
+		width: 100%;
+		height: $TM-bulbSize / 2 + $TM-borderSize;
+		bottom: $TM-borderSize;
+		background: $TM-backgroundColor;
+		z-index: -1;
+	}
+
+	// Bulb
+	
+	&:after {
+		transform: translateX(-50%);
+		width: $TM-bulbSize;
+		height: $TM-bulbSize;
+		background-color: $TM-bulbColor;
+		bottom: -$TM-bulbSize + $TM-borderSize;
+		@include border;
+		z-index: -3;
+		left: 50%;
+	}
+	
+	#graduations {
+		height: 59%;
+		top: 20%;
+		width: 50%;
+
+		&, &:before {
+			position: absolute;
+			border-top: $TM-graduationsStyle;
+			border-bottom: $TM-graduationsStyle;
+		}
+		
+		&:before {
+			content: "";
+			height: 34%;
+			width: 100%;
+			top: 32%;
+		}
+	}
+	
+	#temperature {
+		bottom: 0;
+		background: $TM-mercuryColor;
+		width: 100%;
+		border-radius: $TM-radius;
+		background-size: 100% $TM-height;
+		transition: all 0.2s ease-in-out;
+		
+		&, &:before, &:after {
+			position: absolute;
+		}
+		
+		// Temperature value - Tooltip
+		
+		&:before {
+			content: attr(data-value);
+			background: $TM-tooltipColor;
+			color: white;
+			z-index: 2;
+			padding: $TM-tooltipVerticalPadding $TM-tooltipHorizontalPadding;
+			border-radius: $TM-tooltipRadius;
+			font-size: $TM-tooltipSize;
+			line-height: 1;
+			transform: translateY(50%);
+			left: calc(#{$TM-tooltipLeftShift} + 1em / #{$TM-tooltipArrowWidth});
+			top: calc(-1em + #{$TM-tooltipTopShift} - #{$TM-tooltipVerticalPadding} * 2);
+		}
+		
+		// Tooltip arrow
+	
+		&:after {
+			content: "";
+			border-top: $TM-tooltipSize / $TM-tooltipArrowHeight solid transparent;
+  		border-bottom: $TM-tooltipSize / $TM-tooltipArrowHeight solid transparent;
+			border-right: $TM-tooltipSize / $TM-tooltipArrowWidth solid $TM-tooltipColor;
+			left: $TM-tooltipLeftShift;
+			top: calc(-#{$TM-tooltipSize} / #{$TM-tooltipArrowHeight} + #{$TM-tooltipTopShift});
+		}
+	}
+    }
+    // PLAYGROUND ―――――――――――――――――――――――――
+
+    #playground {
+	font-size: 1.1em;
+	
+	#range {
+		display: flex;
+			
+		input[type="text"] {
+			width: 2em;
+			background: transparent;
+			border: none;
+			color: inherit;
+			font: inherit;
+			margin: 0 5px;
+			padding: 0px 0px;
+			border-bottom: 2px solid transparent;
+			transition: all 0.2s ease-in-out;
+
+			&:focus {
+				border-color: $TM-bulbColor;
+				outline: none;
+			}
+
+			&:first-child {text-align: right; }
+		}
+	}
+	
+	#unit {
+		width: 100%;
+		margin: 0;
+		text-align: center;
+		
+		&:hover { cursor: pointer; }
+	}
+    }
+    
+    input[type="range"] {
+        -webkit-appearance: none;
+        background: transparent;
+        margin: $thumb-height / 2 0;
+        width: $track-width;
+      
+        &::-moz-focus-outer {
+          border: 0;
+        }
+          
+          &:hover {
+              cursor: pointer;
+          }
+      
+        &:focus {
+          outline: 0;
+      
+          &::-webkit-slider-runnable-track {
+            background: $focusStyle;
+                  border-color: $focusStyle;
+          }
+      
+          &::-ms-fill-lower {
+            background: $track-color;
+          }
+      
+          &::-ms-fill-upper {
+            background: $focusStyle;
+                  border-color: $focusStyle;
+          }
+        }
+      
+        &::-webkit-slider-runnable-track {
+          @include track;
+          @include shadow($track-shadow-size, $track-shadow-blur, $track-shadow-color);
+          background: $track-color;
+          border: $track-border-width solid $track-border-color;
+          border-radius: $track-radius;
+        }
+      
+        &::-webkit-slider-thumb {
+          @include thumb;
+          -webkit-appearance: none;
+          margin-top: ((-$track-border-width * 2 + $track-height) / 2 - $thumb-height / 2);
+        }
+      
+        &::-moz-range-track {
+          @include shadow($track-shadow-size, $track-shadow-blur, $track-shadow-color);
+          @include track;
+          background: $track-color;
+          border: $track-border-width solid $track-border-color;
+          border-radius: $track-radius;
+          height: $track-height / 2;
+        }
+      
+        &::-moz-range-thumb {
+          @include thumb(-4);
+        }
+      
+        &::-ms-track {
+          @include track;
+          background: transparent;
+          border-color: transparent;
+          border-width: ($thumb-height / 2) 0;
+          color: transparent;
+        }
+      
+        &::-ms-fill-lower {
+          @include shadow($track-shadow-size, $track-shadow-blur, $track-shadow-color);
+          background: $ie-bottom-track-color;
+          border: $track-border-width solid $track-border-color;
+          border-radius: ($track-radius * 2);
+        }
+      
+        &::-ms-fill-upper {
+          @include shadow($track-shadow-size, $track-shadow-blur, $track-shadow-color);
+          background: $track-color;
+          border: $track-border-width solid $track-border-color;
+          border-radius: ($track-radius * 2);
+        }
+      
+        &::-ms-thumb {
+          @include thumb(-4);
+          margin-top: $track-height / 4;
+        }
+      
+        &:disabled {
+          &::-webkit-slider-thumb {
+            @include disabled;
+          }
+      
+          &::-moz-range-thumb {
+            @include disabled;
+          }
+      
+          &::-ms-thumb {
+            @include disabled;
+          }
+      
+          &::-webkit-slider-runnable-track {
+            @include disabled;
+          }
+      
+          &::-ms-fill-lower {
+            @include disabled;
+          }
+      
+          &::-ms-fill-upper {
+            @include disabled;
+          }
+        }
+    }
+}
