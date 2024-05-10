@@ -30,7 +30,7 @@ YOLOHOME: Elevate your home with cutting-edge smart technology for convenience, 
 # Known bugs
 1. Page loading may take forever. If you face that issue, just reload the website.
 2. <b>Overall Board</b> can't update new data without reloading the website.
-3. Some features (Change info, Settings, etc) haven't been implemented.
+3. Some features (<b>Change info, Settings, etc</b>) haven't been implemented.
 
 # Features that need to be added
 (No suggestion so far)
