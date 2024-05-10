@@ -21,7 +21,7 @@ const Smartdoor = () => {
 
 const handlePassword = async (enteredNumber) => {
   try {
-    // const response = await fetch('http://localhost:3000/smartdoor', {
+    // const response = await fetch('http://localhost:5000/smartdoor', {
     const response = await fetch('https://yolohome-smart-home-system-api.onrender.com/smartdoor', {
       method: 'POST',
       headers: {

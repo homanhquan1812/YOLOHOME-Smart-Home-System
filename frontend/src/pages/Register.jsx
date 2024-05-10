@@ -14,7 +14,7 @@ const Register = () => {
   const submit = async (e) => {
     e.preventDefault();
     try {
-      // const response = await fetch('http://localhost:3000/register', {
+      // const response = await fetch('http://localhost:5000/register', {
       const response = await fetch('https://yolohome-smart-home-system-api.onrender.com/register', {
         method: 'POST',
         headers: {

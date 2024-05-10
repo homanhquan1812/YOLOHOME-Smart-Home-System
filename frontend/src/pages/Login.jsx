@@ -12,7 +12,7 @@ const Login = () => {
   const submit = async (e) => {
     e.preventDefault();
     try {
-      // const response = await fetch('http://localhost:3000/login', {
+      // const response = await fetch('http://localhost:5000/login', {
       const response = await fetch('https://yolohome-smart-home-system-api.onrender.com/login', {
         method: 'POST',
         headers: {
