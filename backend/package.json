@@ -1,0 +1,33 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend using ExpressJS",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/homanhquan1812/YOLOHOME-Smart-Home-System-v2.0.git"
+  },
+  "author": "Ho Manh Quan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/homanhquan1812/YOLOHOME-Smart-Home-System-v2.0/issues"
+  },
+  "homepage": "https://github.com/homanhquan1812/YOLOHOME-Smart-Home-System-v2.0#readme",
+  "dependencies": {
+    "base-64": "^1.0.0",
+    "body-parser": "^1.20.2",
+    "buffer": "^6.0.3",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "mongoose": "^8.3.2",
+    "mongoose-slug-updater": "^3.3.0",
+    "morgan": "^1.10.0",
+    "mqtt": "^5.5.3",
+    "socket.io": "^4.7.5"
+  }
+}
