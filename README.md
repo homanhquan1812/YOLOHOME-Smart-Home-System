@@ -61,7 +61,7 @@ Open <b>backend/src/app/controllers/DashboardController.js</b>, paste the ID int
 # Screenshots
 
 # Credits
-1. <b>Frontend Developers:<b>
+1. <b>Frontend Developers:</b>
 - Trần Xuân Trúc (1953061)
 - Lê Đình Gia	Huy (2011260)
 3. <b>Backend Developer:</b> Hồ Mạnh Quân (1952941) => <b>Leader</b>
