@@ -14,8 +14,8 @@ YOLOHOME: Elevate your home with cutting-edge smart technology for convenience, 
   <img src="https://www.boardinfinity.com/blog/content/images/2023/01/Mern.png" alt="MERN Logo" width="600" style="">
 </div>
 
-1. Front-end: <b>ReactJS</b>.
-2. Back-end: <b>NodeJS and ExpressJS</b>
+1. Frontend: <b>ReactJS</b>.
+2. Backend: <b>NodeJS and ExpressJS</b>
 3. NoSQL Database: <b>MongoDB</b>.
 4. Cloud Database: <b>MongoDB Atlas</b>.
 5. IoT Database: <b>Adafruit</b>.
