@@ -60,27 +60,27 @@ npm run dev
 5. Watch numbers from those Adafruit feeds:
 * Temperature:
 ```
-https://io.adafruit.com/TyTran/feeds/microbit-temperature.
+https://io.adafruit.com/TyTran/feeds/microbit-temperature
 ```
 * Humidity:
 ```
-https://io.adafruit.com/TyTran/feeds/microbit-humi.
+https://io.adafruit.com/TyTran/feeds/microbit-humi
 ```
 * Light:
 ```
-https://io.adafruit.com/TyTran/feeds/microbit-lux.
+https://io.adafruit.com/TyTran/feeds/microbit-lux
 ```
 * LED:
 ```
-https://io.adafruit.com/TyTran/feeds/microbit-rgb.
+https://io.adafruit.com/TyTran/feeds/microbit-rgb
 ```
 * Password:
 ```
-https://io.adafruit.com/TyTran/feeds/microbit-pwd.
+https://io.adafruit.com/TyTran/feeds/microbit-pwd
 ```
 * Dashboard:
 ```
-https://io.adafruit.com/TyTran/dashboards/microbit-dashboard.
+https://io.adafruit.com/TyTran/dashboards/microbit-dashboard
 ```
 If you notice that some features disappear or work abnormally, contact [Trần Đại Tỷ](https://www.facebook.com/V3CTORTR4Z) to get a new ID to connect to Adafruit Database.
 Open <b>backend/src/app/controllers/DashboardController.js</b>, paste the ID into <b>clientId</b>.
