@@ -55,12 +55,38 @@ then open Terminal for <b>frontend</b> folder, run:
 npm run dev
 ```
 
-4. If you notice that some features disappear, contact [Trần Đại Tỷ](https://www.facebook.com/V3CTORTR4Z) to get a new ID to connect to Adafruit Database.
+4. Use this account to log in to the website, or create one yourself:
+   - homanhquan - homanhquan1812
+5. Watch numbers from those Adafruit feeds:
+* Temperature:
+```
+https://io.adafruit.com/TyTran/feeds/microbit-temperature.
+```
+* Humidity:
+```
+https://io.adafruit.com/TyTran/feeds/microbit-humi.
+```
+* Light:
+```
+https://io.adafruit.com/TyTran/feeds/microbit-lux.
+```
+* LED:
+```
+https://io.adafruit.com/TyTran/feeds/microbit-rgb.
+```
+* Password:
+```
+https://io.adafruit.com/TyTran/feeds/microbit-pwd.
+```
+* Dashboard:
+```
+https://io.adafruit.com/TyTran/dashboards/microbit-dashboard.
+```
+If you notice that some features disappear or work abnormally, contact [Trần Đại Tỷ](https://www.facebook.com/V3CTORTR4Z) to get a new ID to connect to Adafruit Database.
 Open <b>backend/src/app/controllers/DashboardController.js</b>, paste the ID into <b>clientId</b>.
 
-5. Use this account to log in to the website, or create one yourself:
-   - homanhquan - homanhquan1812
-6. To terminate batch job, use <b>Ctrl + C</b>.
+You can contact him to have access to those feeds for adding new data in each feed.
+8. To terminate batch job, use <b>Ctrl + C</b>.
 
 # Screenshots
 
