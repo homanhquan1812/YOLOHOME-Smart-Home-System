@@ -86,9 +86,11 @@ If you notice that some features disappear or work abnormally, contact [Tráº§n Ä
 Open <b>backend/src/app/controllers/DashboardController.js</b>, paste the ID into <b>clientId</b>.
 
 You can contact him to have access to those feeds for adding new data in each feed.
+
 8. To terminate batch job, use <b>Ctrl + C</b>.
 
 # Screenshots
+![image](https://github.com/homanhquan1812/YOLOHOME-Smart-Home-System/assets/130955957/dbe5b36e-05db-4f67-b4a1-9bf1d159eb87)
 
 # Credits
 1. <b>Frontend Developers:</b>
