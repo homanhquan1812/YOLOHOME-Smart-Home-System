@@ -33,7 +33,7 @@ YOLOHOME: Elevate your home with cutting-edge smart technology for convenience, 
 3. Some features (<b>Change info, Settings, etc</b>) haven't been implemented.
 
 # Features that need to be added
-(No suggestion so far)
+1. Middleware.
 
 # Development Status:
 > Finished.
