@@ -91,6 +91,8 @@ You can contact him to have access to those feeds for adding new data in each fe
 
 # Screenshots
 ![image](https://github.com/homanhquan1812/YOLOHOME-Smart-Home-System/assets/130955957/dbe5b36e-05db-4f67-b4a1-9bf1d159eb87)
+![image](https://github.com/homanhquan1812/YOLOHOME-Smart-Home-System/assets/130955957/2262e02a-9f73-426d-8170-efb1f85f410e)
+![image](https://github.com/homanhquan1812/YOLOHOME-Smart-Home-System/assets/130955957/f7b81946-c2be-4330-9b1b-36f9b4924e4e)
 
 # Credits
 1. <b>Frontend Developers:</b>
