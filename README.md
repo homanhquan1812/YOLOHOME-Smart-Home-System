@@ -35,7 +35,7 @@ YOLOHOME: Elevate your home with cutting-edge smart technology for convenience, 
 # Features that need to be added
 1. Middleware.
 
-# Development Status:
+# Development status:
 > Finished.
 
 # How to use
