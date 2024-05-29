@@ -201,7 +201,7 @@ class DashboardController extends EventEmitter {
 
 module.exports = new DashboardController(io, mqtt.connect('mqtt://io.adafruit.com', {
     username: 'TyTran',
-    password: 'aio_hgjx29VZjKYtpNqKvluiNqROrDcW', // Key or password for authentication
+    password: 'aio_FTuQ55BJ0OqFQZby009Pq5wWK1Si', // Key or password for authentication
     clientId: 'my-client-id', // Unique client ID
     clean: true // Clean session
 }));

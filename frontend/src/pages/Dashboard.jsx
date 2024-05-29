@@ -12,8 +12,8 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // const response = await fetch('http://localhost:5000/dashboard');
-        const response = await fetch('https://yolohome-smart-home-system-api.onrender.com/dashboard');
+        const response = await fetch('http://localhost:5000/dashboard');
+        // const response = await fetch('https://yolohome-smart-home-system-api.onrender.com/dashboard');
         if (!response.ok) {
           throw new Error('Failed to fetch data');
         }
@@ -33,6 +33,8 @@ const Dashboard = () => {
     // Cleanup function
     return () => clearInterval(intervalId);
   }, []);
+
+  
 
   // Temperature Bug-Fixes
   useEffect(() => {
@@ -54,8 +56,8 @@ const Dashboard = () => {
 
   const handleLedUpdate = async () => {
     try {
-      // const response = await fetch('http://localhost:5000/dashboard', {
-      const response = await fetch('https://yolohome-smart-home-system-api.onrender.com/dashboard', {
+      const response = await fetch('http://localhost:5000/dashboard', {
+      // const response = await fetch('https://yolohome-smart-home-system-api.onrender.com/dashboard', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
