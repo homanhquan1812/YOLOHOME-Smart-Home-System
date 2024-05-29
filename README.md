@@ -11,32 +11,36 @@ YOLOHOME: Elevate your home with cutting-edge smart technology for convenience, 
 # Technologies used to build this website:
 
 <div align="center">
-  <img src="https://www.boardinfinity.com/blog/content/images/2023/01/Mern.png" alt="YOLOHOME Logo" width="600" style="">
+  <img src="https://www.boardinfinity.com/blog/content/images/2023/01/Mern.png" alt="MERN Logo" width="600" style="">
 </div>
 
-1. Front-end: <b>ReactJS</b>.
-2. Back-end: <b>NodeJS and ExpressJS</b>
+1. Frontend: <b>ReactJS</b>.
+2. Backend: <b>NodeJS and ExpressJS</b>
 3. NoSQL Database: <b>MongoDB</b>.
 4. Cloud Database: <b>MongoDB Atlas</b>.
 5. IoT Database: <b>Adafruit</b>.
 6. Hosting: <b>Render</b> (free).
+7. IoT Devices:
+<div align="center">
+  <img src="https://github.com/homanhquan1812/YOLOHOME-Smart-Home-System/assets/130955957/de418a50-d17d-4afd-baa4-0a63c6293464" alt="IoT Devices" width="600" style="">
+</div>
 
 > Basically, hosting a website that people can access can't depend on an offline database. That's why our team uses MongoDB Atlas to let it connect to Render, so that the website can work perfectly.
 
 # Known bugs
 1. Page loading may take forever. If you face that issue, just reload the website.
-2. <b>Overall Board</b> can't update new data without reloading the website.
-3. Some features (Change info, Settings, etc) haven't been implemented.
+2. <b>Overall Board</b> can't update new data without reloading the website and it doesn't show percentage in Dark mode.
+3. Some features (<b>Change info, Settings, etc</b>) haven't been implemented.
 
 # Features that need to be added
-(No suggestion so far)
+1. Middleware.
 
-# Development Status:
+# Development status:
 > Finished.
 
 # How to use
 1. Download and install <b>Node</b> and <b>MongoDB</b>.
-2. Extract <b>JSON Data.zip</b> and insert all JSON files into your MongoDB database like this:
+2. Extract <b>JSON Data.rar</b> and insert all JSON files into your MongoDB database like this:
    
    ![image](https://github.com/homanhquan1812/YOLOHOME-Smart-Home-System/assets/130955957/f3d0408a-f8b1-4fc2-bbb1-cfa813ea45c9)
 
@@ -51,17 +55,47 @@ then open Terminal for <b>frontend</b> folder, run:
 npm run dev
 ```
 
-4. If you notice that some features disappear, contact [Trần Đại Tỷ](https://www.facebook.com/V3CTORTR4Z) to get a new ID to connect to Adafruit Database.
+4. Use this account to log in to the website, or create one yourself:
+   - homanhquan - homanhquan1812
+5. Watch numbers from those Adafruit feeds:
+* Temperature:
+```
+https://io.adafruit.com/TyTran/feeds/microbit-temperature
+```
+* Humidity:
+```
+https://io.adafruit.com/TyTran/feeds/microbit-humi
+```
+* Light:
+```
+https://io.adafruit.com/TyTran/feeds/microbit-lux
+```
+* LED:
+```
+https://io.adafruit.com/TyTran/feeds/microbit-rgb
+```
+* Password:
+```
+https://io.adafruit.com/TyTran/feeds/microbit-pwd
+```
+* Dashboard:
+```
+https://io.adafruit.com/TyTran/dashboards/microbit-dashboard
+```
+If you notice that some features disappear or work abnormally, contact [Trần Đại Tỷ](https://www.facebook.com/V3CTORTR4Z) to get a new ID to connect to Adafruit Database.
 Open <b>backend/src/app/controllers/DashboardController.js</b>, paste the ID into <b>clientId</b>.
 
-5. Use this account to log in to the website, or create one yourself:
-   - homanhquan - homanhquan1812
-6. To terminate batch job, use <b>Ctrl + C</b>.
+You can contact him to have access to those feeds for adding new data in each feed.
+
+8. To terminate batch job, use <b>Ctrl + C</b>.
 
 # Screenshots
+![image](https://github.com/homanhquan1812/YOLOHOME-Smart-Home-System/assets/130955957/dbe5b36e-05db-4f67-b4a1-9bf1d159eb87)
+![image](https://github.com/homanhquan1812/YOLOHOME-Smart-Home-System/assets/130955957/2262e02a-9f73-426d-8170-efb1f85f410e)
+![image](https://github.com/homanhquan1812/YOLOHOME-Smart-Home-System/assets/130955957/f7b81946-c2be-4330-9b1b-36f9b4924e4e)
 
 # Credits
-1. <b>Frontend Developers:<b>
+1. <b>Frontend Developers:</b>
 - Trần Xuân Trúc (1953061)
 - Lê Đình Gia	Huy (2011260)
 3. <b>Backend Developer:</b> Hồ Mạnh Quân (1952941) => <b>Leader</b>
