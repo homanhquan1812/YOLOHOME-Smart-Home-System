@@ -14,8 +14,8 @@ const io = socketIo(server);
 
 // Enable CORS for requests from React website
 // app.use(cors({ origin: 'http://localhost:3000' })); // React
-app.use(cors({ origin: 'http://localhost:5173' })); // Vite
-// app.use(cors({ origin: 'https://yolohome-smart-home-system.onrender.com' })); // Hosting on Render
+// app.use(cors({ origin: 'http://localhost:5173' })); // Vite
+app.use(cors({ origin: 'https://yolohome-smart-home-system.onrender.com' })); // Hosting on Render
 
 // Database
 db.connect();
