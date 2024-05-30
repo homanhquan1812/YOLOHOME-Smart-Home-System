@@ -37,7 +37,7 @@ function clipCircle(percent) {
   function animatePercent() {
     setTimeout(function() {
       
-      if (count == 60) //set value
+      if (count == 1) //set value
         return animatePercent();
       else 
         count++;

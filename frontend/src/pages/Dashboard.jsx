@@ -34,7 +34,171 @@ const Dashboard = () => {
     return () => clearInterval(intervalId);
   }, []);
 
+  const clipCircle = (percent) => {
+    const start = 'polygon(50% 0, 50% 50%,';
+    if (percent >= 0 && percent <= 12.5) {
+      return {
+        color: 'red',
+        clipPath: `${start} ${50 + percent * 4}% 0%)`,
+      };
+    } else if (percent >= 12.6 && percent <= 37.5) {
+      return {
+        color: '#f9b800',
+        clipPath: `${start} 100% ${(percent - 12.5) * 4}%, 100% 0%)`,
+      };
+    } else if (percent >= 37.6 && percent <= 62.5) {
+      return {
+        color: 'yellowgreen',
+        clipPath: `${start} ${100 - (percent - 37.5) * 4}% 100%, 100% 100%, 100% 0%)`,
+      };
+    } else if (percent >= 62.6 && percent <= 87.5) {
+      return {
+        color: 'limegreen',
+        clipPath: `${start} 0% ${100 - (percent - 62.5) * 4}%, 0% 100%, 100% 100%, 100% 0%)`,
+      };
+    } else if (percent >= 87.6 && percent < 100) {
+      return {
+        color: 'dodgerblue',
+        clipPath: `${start} ${(percent - 87.5) * 4}% 0%, 0% 0%, 0% 100%, 0% 100%, 100% 100%, 100% 0%)`,
+      };
+    } else if (percent === 100) {
+      return {
+        color: 'dodgerblue',
+        clipPath: 'unset',
+      };
+    }
+  };
   
+  const HumidityCard = ({ sensor }) => {
+  const [count, setCount] = useState(sensor.humi);
+  const [style, setStyle] = useState({});
+  const [isAnimating, setIsAnimating] = useState(true);
+
+  useEffect(() => {
+    const animatePercent = () => {
+      if (!isAnimating || count >= 55.1) return;
+      const timer = setTimeout(() => {
+        setCount((prevCount) => Math.min(prevCount + 1, 55.1));
+      }, 50);
+      return () => clearTimeout(timer);
+    };
+
+    const options = clipCircle(count);
+    setStyle({
+      backgroundColor: options.color,
+      clipPath: options.clipPath,
+      WebkitClipPath: options.clipPath,
+    });
+
+    animatePercent();
+  }, [count, isAnimating]);
+
+  useEffect(() => {
+    setCount(sensor.humi);
+    setIsAnimating(true);
+  }, [sensor.humi]);
+
+  const stopAnimation = () => {
+    setIsAnimating(false);
+  };
+
+  return (
+      <div className="card">
+        <div className="card-body">
+          <div className="container-humidity" onClick={stopAnimation}>
+            <div className="circle-humidity" style={style}></div>
+            <div className="center-humidity">{count.toFixed(1)}%</div>
+            <div className="humidity-text">
+              <p className="component" style={{fontSize: '20px'}}>Humidity</p>
+            </div>
+          </div>
+        </div>
+      </div>
+  );
+};
+
+const clipCircle2 = (percent) => {
+  const start = 'polygon(50% 0, 50% 50%,';
+  if (percent >= 0 && percent <= 12.5) {
+    return {
+      color: 'red',
+      clipPath: `${start} ${50 + percent * 4}% 0%)`,
+    };
+  } else if (percent >= 12.6 && percent <= 37.5) {
+    return {
+      color: '#f9b800',
+      clipPath: `${start} 100% ${(percent - 12.5) * 4}%, 100% 0%)`,
+    };
+  } else if (percent >= 37.6 && percent <= 62.5) {
+    return {
+      color: 'yellowgreen',
+      clipPath: `${start} ${100 - (percent - 37.5) * 4}% 100%, 100% 100%, 100% 0%)`,
+    };
+  } else if (percent >= 62.6 && percent <= 87.5) {
+    return {
+      color: 'limegreen',
+      clipPath: `${start} 0% ${100 - (percent - 62.5) * 4}%, 0% 100%, 100% 100%, 100% 0%)`,
+    };
+  } else if (percent >= 87.6 && percent < 100) {
+    return {
+      color: 'dodgerblue',
+      clipPath: `${start} ${(percent - 87.5) * 4}% 0%, 0% 0%, 0% 100%, 0% 100%, 100% 100%, 100% 0%)`,
+    };
+  } else if (percent === 100) {
+    return {
+      color: 'dodgerblue',
+      clipPath: 'unset',
+    };
+  }
+};
+
+const HumidityCard2 = ({ sensor }) => {
+const [count, setCount] = useState(sensor.lux);
+const [style, setStyle] = useState({});
+const [isAnimating, setIsAnimating] = useState(true);
+
+useEffect(() => {
+  const animatePercent = () => {
+    if (!isAnimating || count >= 55.1) return;
+    const timer = setTimeout(() => {
+      setCount((prevCount) => Math.min(prevCount + 1, 55.1));
+    }, 50);
+    return () => clearTimeout(timer);
+  };
+
+  const options = clipCircle2(count);
+  setStyle({
+    backgroundColor: options.color,
+    clipPath: options.clipPath,
+    WebkitClipPath: options.clipPath,
+  });
+
+  animatePercent();
+}, [count, isAnimating]);
+
+useEffect(() => {
+  setCount(sensor.lux);
+  setIsAnimating(true);
+}, [sensor.lux]);
+
+const stopAnimation = () => {
+  setIsAnimating(false);
+};
+
+return (
+    <div className="card">
+      <div className="card-body">
+        <div className="container-humidity" onClick={stopAnimation}>
+          <div className="circle-humidity" style={style}></div>
+          <div className="center-humidity">{count.toFixed(1)}%</div>
+          <div className="humidity-text">
+            <p className="component" style={{fontSize: '20px'}}>Brightness</p>
+          </div>
+        </div>
+      </div>
+    </div>
+);
+};
 
   // Temperature Bug-Fixes
   useEffect(() => {
@@ -98,7 +262,7 @@ const Dashboard = () => {
           if (
             sensor.sensor_name === "temperatureSensor" &&
             sensor.temperature >= 21 &&
-            sensor.temperature <= 28
+            sensor.temperature <= 32
           ) {
             setLoad((prevLoad) => prevLoad + 33);
             setScoreAdded(true); // Set scoreAdded to true to indicate that score has been added
@@ -371,100 +535,8 @@ const Dashboard = () => {
                   </div>
                 </li>
                 <li className="nav-item dropdown notification_dropdown">
-                  {/* <a class="nav-link bell-link" href="javascript:void(0);">
-									<svg width="25" height="24" viewBox="0 0 25 24" fill="none">
-										<g clip-path="url(#clip0_1_463)">
-										<path opacity="0.3" fill-rule="evenodd" clip-rule="evenodd" d="M6.5 2H18.5C19.0523 2 19.5 2.44772 19.5 3V13C19.5 13.5523 19.0523 14 18.5 14H6.5C5.94772 14 5.5 13.5523 5.5 13V3C5.5 2.44772 5.94772 2 6.5 2ZM14.3 4C13.6562 4 12.9033 4.72985 12.5 5.2C12.0967 4.72985 11.3438 4 10.7 4C9.5604 4 8.9 4.88887 8.9 6.02016C8.9 7.27339 10.1 8.6 12.5 10C14.9 8.6 16.1 7.3 16.1 6.1C16.1 4.96871 15.4396 4 14.3 4Z" fill="#222B40"/>
-										<path fill-rule="evenodd" clip-rule="evenodd" d="M4.29275 6.57254L12.5 12.5L20.7073 6.57254C20.9311 6.41086 21.2437 6.46127 21.4053 6.68514C21.4669 6.77034 21.5 6.87278 21.5 6.97788V17C21.5 18.1046 20.6046 19 19.5 19H5.5C4.39543 19 3.5 18.1046 3.5 17V6.97788C3.5 6.70174 3.72386 6.47788 4 6.47788C4.10511 6.47788 4.20754 6.511 4.29275 6.57254Z" fill="#222B40"/>
-										</g>
-										<defs>
-										<clipPath id="clip0_1_463">
-										<rect width="24" height="24" fill="white" transform="translate(0.5)"/>
-										</clipPath>
-										</defs>
-									</svg>
-									</a> */}
                 </li>
                 <li className="nav-item dropdown notification_dropdown">
-                  {/* <a class="nav-link " href="javascript:void(0);" data-bs-toggle="dropdown">
-										<svg width="25" height="24" viewBox="0 0 25 24" fill="none"
-											xmlns="http://www.w3.org/2000/svg">
-											<path fill-rule="evenodd" clip-rule="evenodd"
-												d="M3.5 16.87V9.257H21.5V16.931C21.5 20.07 19.5241 22 16.3628 22H8.62733C5.49561 22 3.5 20.03 3.5 16.87ZM8.45938 14.41C8.00494 14.431 7.62953 14.07 7.60977 13.611C7.60977 13.151 7.96542 12.771 8.41987 12.75C8.86443 12.75 9.22997 13.101 9.23985 13.55C9.2596 14.011 8.90395 14.391 8.45938 14.41ZM12.5198 14.41C12.0653 14.431 11.6899 14.07 11.6701 13.611C11.6701 13.151 12.0258 12.771 12.4802 12.75C12.9248 12.75 13.2903 13.101 13.3002 13.55C13.32 14.011 12.9643 14.391 12.5198 14.41ZM16.5505 18.09C16.096 18.08 15.7305 17.7 15.7305 17.24C15.7206 16.78 16.0862 16.401 16.5406 16.391H16.5505C17.0148 16.391 17.3902 16.771 17.3902 17.24C17.3902 17.71 17.0148 18.09 16.5505 18.09ZM11.6701 17.24C11.6899 17.7 12.0653 18.061 12.5198 18.04C12.9643 18.021 13.32 17.641 13.3002 17.181C13.2903 16.731 12.9248 16.38 12.4802 16.38C12.0258 16.401 11.6701 16.78 11.6701 17.24ZM7.59989 17.24C7.61965 17.7 7.99506 18.061 8.44951 18.04C8.89407 18.021 9.24973 17.641 9.22997 17.181C9.22009 16.731 8.85456 16.38 8.40999 16.38C7.95554 16.401 7.59989 16.78 7.59989 17.24ZM15.7404 13.601C15.7404 13.141 16.096 12.771 16.5505 12.761C16.9951 12.761 17.3507 13.12 17.3705 13.561C17.3804 14.021 17.0247 14.401 16.5801 14.41C16.1257 14.42 15.7503 14.07 15.7404 13.611V13.601Z"
-												fill="#222B40" />
-											<path opacity="0.4"
-												d="M3.50336 9.2569C3.5162 8.6699 3.5656 7.5049 3.65846 7.1299C4.13267 5.0209 5.74298 3.6809 8.04485 3.4899H16.9559C19.238 3.6909 20.8681 5.0399 21.3423 7.1299C21.4342 7.4949 21.4836 8.6689 21.4964 9.2569H3.50336Z"
-												fill="#222B40" />
-											<path
-												d="M8.80489 6.59C9.23958 6.59 9.56559 6.261 9.56559 5.82V2.771C9.56559 2.33 9.23958 2 8.80489 2C8.3702 2 8.04419 2.33 8.04419 2.771V5.82C8.04419 6.261 8.3702 6.59 8.80489 6.59Z"
-												fill="#222B40" />
-											<path
-												d="M16.195 6.59C16.6198 6.59 16.9557 6.261 16.9557 5.82V2.771C16.9557 2.33 16.6198 2 16.195 2C15.7603 2 15.4343 2.33 15.4343 2.771V5.82C15.4343 6.261 15.7603 6.59 16.195 6.59Z"
-												fill="#222B40" />
-										</svg>
-									</a>
-									<div class="dropdown-menu dropdown-menu-end">
-										<div id="DZ_W_TimeLine02"
-											class="widget-timeline dz-scroll style-1 p-3 height370">
-											<ul class="timeline">
-												<li>
-													<div class="timeline-badge primary"></div>
-													<a class="timeline-panel text-muted" href="javascript:void(0);">
-														<span>10 minutes ago</span>
-														<h6 class="mb-0">Youtube, a video-sharing website, goes live
-															<strong class="text-primary">$500</strong>.
-														</h6>
-													</a>
-												</li>
-												<li>
-													<div class="timeline-badge info">
-													</div>
-													<a class="timeline-panel text-muted" href="javascript:void(0);">
-														<span>20 minutes ago</span>
-														<h6 class="mb-0">New order placed <strong
-																class="text-info">#XF-2356.</strong></h6>
-														<p class="mb-0">Quisque a consequat ante Sit amet magna at
-															volutapt...</p>
-													</a>
-												</li>
-												<li>
-													<div class="timeline-badge danger">
-													</div>
-													<a class="timeline-panel text-muted" href="javascript:void(0);">
-														<span>30 minutes ago</span>
-														<h6 class="mb-0">john just buy your product <strong
-																class="text-warning">Sell $250</strong></h6>
-													</a>
-												</li>
-												<li>
-													<div class="timeline-badge success">
-													</div>
-													<a class="timeline-panel text-muted" href="javascript:void(0);">
-														<span>15 minutes ago</span>
-														<h6 class="mb-0">StumbleUpon is acquired by eBay. </h6>
-													</a>
-												</li>
-												<li>
-													<div class="timeline-badge warning">
-													</div>
-													<a class="timeline-panel text-muted" href="javascript:void(0);">
-														<span>20 minutes ago</span>
-														<h6 class="mb-0">Mashable, a news website and blog, goes live.
-														</h6>
-													</a>
-												</li>
-												<li>
-													<div class="timeline-badge dark">
-													</div>
-													<a class="timeline-panel text-muted" href="javascript:void(0);">
-														<span>20 minutes ago</span>
-														<h6 class="mb-0">Mashable, a news website and blog, goes live.
-														</h6>
-													</a>
-												</li>
-											</ul>
-										</div>
-									</div> */}
                 </li>
                 <li className="nav-item ps-3">
                   <div className="dropdown header-profile2">
@@ -494,22 +566,6 @@ const Dashboard = () => {
                             </svg>
                             <span className="ms-2">Profile </span>
                           </a>
-                          {/* <a href="javascript:void(0);" class="dropdown-item ai-icon ">
-														<svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-														<path d="M17.9026 8.85114L13.4593 12.4642C12.6198 13.1302 11.4387 13.1302 10.5992 12.4642L6.11844 8.85114" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-														<path fill-rule="evenodd" clip-rule="evenodd" d="M16.9089 21C19.9502 21.0084 22 18.5095 22 15.4384V8.57001C22 5.49883 19.9502 3 16.9089 3H7.09114C4.04979 3 2 5.49883 2 8.57001V15.4384C2 18.5095 4.04979 21.0084 7.09114 21H16.9089Z" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-														</svg>
-
-														<span class="ms-2">Message </span>
-													</a> */}
-                          {/* <a href="email-inbox.html" class="dropdown-item ai-icon ">
-														<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-															<path fill-rule="evenodd" clip-rule="evenodd" d="M12 17.8476C17.6392 17.8476 20.2481 17.1242 20.5 14.2205C20.5 11.3188 18.6812 11.5054 18.6812 7.94511C18.6812 5.16414 16.0452 2 12 2C7.95477 2 5.31885 5.16414 5.31885 7.94511C5.31885 11.5054 3.5 11.3188 3.5 14.2205C3.75295 17.1352 6.36177 17.8476 12 17.8476Z" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-															<path d="M14.3888 20.8572C13.0247 22.372 10.8967 22.3899 9.51947 20.8572" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-															</svg>
-
-														<span class="ms-2">Notification </span>
-													</a> */}
                         </div>
                         <div className="card-footer px-0 py-2">
                           <a href="javascript:void(0);" className="dropdown-item ai-icon ">
@@ -538,12 +594,6 @@ const Dashboard = () => {
         </nav>
       </div>
     </div>
-    {/***********************************
-      Header end ti-comment-alt
-  ************************************/}
-    {/***********************************
-      Sidebar start
-  ************************************/}
     <div className="deznav">
       <div className="deznav-scroll">
         <ul className="metismenu" id="menu">
@@ -576,23 +626,10 @@ const Dashboard = () => {
               </div>
             </a><a className="nav-text" href="smartdoor">Smartdoor
             </a>
-            {/* <ul aria-expanded="false">
-							<li><a href="./chat.html">Alert<span class="badge badge-danger badge-xs ms-1">NEW</span></a>
-							</li>
-							<li><a href="./app-calender.html">Manual</a></li>
-							<li><a class="has-arrow" href="javascript:void(0);" aria-expanded="false">Password</a>
-							</li>
-						</ul> */}
           </li>
         </ul>
       </div>
     </div>
-    {/***********************************
-      Sidebar end
-  ************************************/}
-    {/***********************************
-      Content body start
-  ************************************/}
     <div className="content-body">
       <div className="container-fluid">
         <div className="row">
@@ -604,7 +641,7 @@ const Dashboard = () => {
               <p style={{fontSize: '20px'}}>Overall Score: <span style={{color: getOverallScoreColor()}}>{load == 100 ? 'Good' : load >= 50 ? 'Normal' : 'Bad'}</span>.</p>
               <p style={{marginBottom: '-10px', fontSize: '20px', color: 'orange'}}>Ideal levels for these 3 parameters:</p>
                 <ul>
-                  <li style={{fontSize: '15px'}}>Temperature: <span style={{color: 'red'}}>21 - 28°C</span></li>
+                  <li style={{fontSize: '15px'}}>Temperature: <span style={{color: 'red'}}>21 - 32°C</span></li>
                   <li style={{fontSize: '15px'}}>Humidity: <span style={{color: 'red'}}>40 - 80%</span></li>
                   <li style={{fontSize: '15px'}}>Brightness: <span style={{color: 'red'}}>60 - 100%</span></li>
                 </ul>
@@ -641,7 +678,7 @@ const Dashboard = () => {
                                   <input type="range" min="0" max="50" value={sensor.temperature} />
                                   <input id="maxTemp" type="text" value="50" />
                                 </div>
-                                <p id="unit">Celcius C°</p>
+                                <p id="unit" style={{fontSize: '20px'}}>Temperature</p>
                               </div>
                             </div>
                           </div>
@@ -651,37 +688,17 @@ const Dashboard = () => {
                   </div>
                   <div className="col-xl-3 col-sm-6 humidity">
                   {sensors.map((sensor, index) => (
-                      sensor.sensor_name === "humiSensor" && (
-                        <div className="card" key={index}>
-                          <div className="card-body">
-                            <div className="container-humidity">
-                              <div className="circle-humidity"></div>
-                              <div className="center-humidity"></div>
-                              <div className="humidity-text">
-                                <p className="component">Humidity: {sensor.humi}</p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      )
-                    ))}
+                    sensor.sensor_name === "humiSensor" && (
+                      <HumidityCard key={index} sensor={sensor} />
+                    )
+                  ))}
                   </div>
                   <div className="col-xl-3 col-sm-6 humidity">
                   {sensors.map((sensor, index) => (
-                      sensor.sensor_name === "luxSensor" && (
-                        <div className="card" key={index}>
-                          <div className="card-body">
-                            <div className="container-humidity">
-                              <div className="circle-humidity" data-value={sensor.lux}></div>
-                              <div className="center-humidity"></div>
-                              <div className="humidity-text">
-                                <p className="component">Lux: {sensor.lux}</p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      )
-                    ))}
+                    sensor.sensor_name === "luxSensor" && (
+                      <HumidityCard2 key={index} sensor={sensor} />
+                    )
+                  ))}
                   </div>
                   
                   <div className="col-xl-3 col-sm-6 illuminance">
