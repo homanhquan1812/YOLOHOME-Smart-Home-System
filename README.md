@@ -93,7 +93,7 @@ You can contact him to have access to those feeds for adding new data in each fe
 ![image](https://github.com/homanhquan1812/YOLOHOME-Smart-Home-System/assets/130955957/f7b81946-c2be-4330-9b1b-36f9b4924e4e)
 
 # Credits
-1. <b>Frontend Developers:</b>: Trần Xuân Trúc (1953061)
+1. <b>Frontend Developers:</b> Trần Xuân Trúc (1953061)
 3. <b>Backend Developer:</b> Hồ Mạnh Quân (1952941) => <b>Leader</b>
 4. <b>Hardware Developer</b>: Trần Đại Tỷ (1953090)
 5. <b>MISC Developer:</b> Nguyễn Anh Tuấn (1953070)
